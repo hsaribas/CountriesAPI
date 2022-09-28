@@ -17,18 +17,18 @@ const Countries = () => {
 
   const orderCountries = () => {
     const arr = countries.sort((a, b) => {
-      if(a.name.common > b.name.common){
-        return 1
-      }else if(a.name.common < b.name.common){
-        return -1
-      }else{
-        return 0
+      if (a.name.common > b.name.common) {
+        return 1;
+      } else if (a.name.common < b.name.common) {
+        return -1;
+      } else {
+        return 0;
       }
-    })
+    });
 
-    console.log(arr)
-    setCountries([...arr])
-  }
+    console.log(arr);
+    setCountries([...arr]);
+  };
 
   useEffect(() => {
     loadData();
@@ -49,8 +49,10 @@ const Countries = () => {
         <tbody>
           {countries.map((country, index) => (
             <tr>
-              <th scope="row">{index+1}</th>
-              <td><img src={country.flags.png} width="100"/></td>
+              <th scope="row">{index + 1}</th>
+              <td>
+                <img src={country.flags.png} width="100" />
+              </td>
               <td>{country.name.common}</td>
               <td>{country.population}</td>
               <td>{country.capital && country.capital.join(" | ")}</td>
